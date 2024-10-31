@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist", // This is where compiled files will go
+    "rootDir": "./backend", // Set to root of the backend folder
+    "baseUrl": "./backend",
+    "typeRoots": ["./node_modules/@types"]
+  },
+  "include": ["backend/**/*.ts", "data/examData.js"], // Include all TypeScript files in the backend folder
+  "exclude": ["node_modules", "dist"]
+}
