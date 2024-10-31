@@ -1,0 +1,31 @@
+import {create} from "zustand";
+
+
+interface AuthState {
+    user: {
+        _id: number;
+        name: string;
+        email: string;
+        role: string;
+    } | null;
+    token: string | null;
+    loading: boolean;
+    error: string | null;
+    loggedIn: boolean;
+    login: (user: { name: string; email: string; password: string }, token: string) => void;
+    logout: () => void;
+    setLoading: (loading: boolean) => void;
+    setError: (error: string) => void;
+}
+
+const useAuthStore = create<AuthState>((set) => ({
+    user: null,
+    token: null,
+    loading: false,
+    error: null,
+    loggedIn: false,
+    login: (user, token) => set({ user, token, loggedIn: true }),
+    logout: () => set({ user: null, token: null, loggedIn: false }),
+    setLoading: (loading) => set({ loading }),
+    setError: (error) => set({ error }),
+}));

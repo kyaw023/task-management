@@ -1,0 +1,33 @@
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import {LayoutComponent} from "../src/components";
+import HomePage from "../src/pages/Home.page";
+import {LoginPage, RegisterPage} from "../src/pages";
+
+
+const IndexRoute = () => {
+    const router = createBrowserRouter(
+        [
+            {
+                path: "/",
+                element: <LayoutComponent/>,
+                children : [
+                    {
+                       index: true, element : <HomePage/>
+                    },
+                    {
+                        path : "login",
+                        element : <LoginPage/>
+                    },
+                    {
+                        path : "register",
+                        element : <RegisterPage/>
+                    },
+                ]
+            },
+
+        ]
+    )
+
+    return <RouterProvider router={router} />
+}
+export default IndexRoute
