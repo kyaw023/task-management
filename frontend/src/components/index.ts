@@ -1,3 +1,11 @@
-export  { default as LayoutComponent} from './Layout.component'
-export  { default as NavbarComponent} from './Navbar.component'
-export  { default as FormComponent} from './Form.component'
+export { default as LayoutComponent } from "./Layout.component";
+export { default as AddTaskModalComponent } from "./AddTaskModal.component.tsx";
+export { default as FormComponent } from "./Form.component";
+export { default as LoadingComponent } from "./Loading.component";
+export { default as SideBarComponent } from "./SideBar.component";
+export { default as StatisticsCardsComponent } from "./StatisticsCards.component";
+export { default as TaskListComponent } from "./TaskList.component";
+export { default as TaskCardComponent } from "./TaskCard.component";
+export { default as SearchTaskComponent } from "./SearchTask.component";
+export { default as SortTaskComponent } from "./SortTask.component";
+export { default as FilterTaskComponent } from "./FilterTask.component";
