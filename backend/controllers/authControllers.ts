@@ -6,6 +6,9 @@ import {createToken} from "../helpers/createToken";
 export const registerUser = async (req: Request, res: Response): Promise<any> => {
     const { name, email, password, role } = req.body;
 
+
+
+
     try {
         // Check if user already exists
         const isUserExisted = await User.findOne({ email });
@@ -44,9 +47,13 @@ export const registerUser = async (req: Request, res: Response): Promise<any> =>
 
 export const loginUser = async (req: Request, res: Response): Promise<any> => {
     const { email, password } = req.body;
+
+
     try {
         // Check if user exists
         const user = await User.findOne({ email });
+
+
         if (!user) {
             return res.status(404).json({ message: "User not found." });
         }
@@ -58,6 +65,11 @@ export const loginUser = async (req: Request, res: Response): Promise<any> => {
         }
 
         const token = createToken(user._id as string);
+
+        res.cookie("jwt", token, {
+            httpOnly: true,
+            maxAge: 24 * 60 * 60 * 1000, // 1 day // 1 day
+        });
 
         return res.status(200).json({
             message: "Login successful",

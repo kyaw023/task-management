@@ -1,0 +1,13 @@
+
+
+interface UserState {
+    user : {
+        name : string
+        email : string
+        role : string
+    },
+    isLoading : boolean,
+    isError : boolean,
+    token : string,
+
+}
